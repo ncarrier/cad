@@ -1,5 +1,10 @@
 model/stl
 
+voir aussi si
+http://forge.kasey.fr/projets/stl2png/
+pourrait accéler le thumbnailing
+
+voir aussi: https://github.com/unlimitedbacon/stl-thumb
 
 https://github.com/nophead/Mendel90/blob/master/utils/render.blend
 https://raw.githubusercontent.com/nophead/Mendel90/master/utils/viz.py
