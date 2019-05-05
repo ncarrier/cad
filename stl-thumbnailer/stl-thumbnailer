@@ -1,0 +1,26 @@
+#!/bin/bash
+
+# $1 input file name
+# $2 output file name
+# $3 size, e.g.: 128 for 128x128
+
+set -xeu
+
+input=$1
+output=$2
+size=$3
+
+tempfile=`mktemp /tmp/stl-thumbnailerXXXXXXXX`
+trap "rm -f ${tempfile}" EXIT
+
+blender -b /usr/share/stl-thumbnailer/render.blend \
+    -P /usr/share/stl-thumbnailer/viz.py -- \
+    "${input}" \
+    "${tempfile}"
+
+convert "${tempfile}" -thumbnail "${size}x${size}>" \
+    -background none \
+    -gravity center \
+    -extent ${size}x${size} \
+    "${output}"
+

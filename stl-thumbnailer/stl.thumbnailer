@@ -1,0 +1,4 @@
+[Thumbnailer Entry]
+Exec=stl-thumbnailer %i %o %s
+MimeType=model/stl
+

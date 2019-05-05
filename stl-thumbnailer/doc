@@ -1,0 +1,22 @@
+model/stl
+
+
+https://github.com/nophead/Mendel90/blob/master/utils/render.blend
+https://raw.githubusercontent.com/nophead/Mendel90/master/utils/viz.py
+#gconftool-2 --set "/org/desktop/gnome/thumbnailers/model@stl/enable" --type bool "true"
+#gconftool-2 --set "/org/desktop/gnome/thumbnailers/model@stl/command" --type string "stl-thumbnailer %i %o %s"
+
+stl-thumbnailer %i %o %s
+
+/desktop/gnome/thumbnailers/model@stl/enable bool
+/desktop/gnome/thumbnailers/model@stl/command string
+
+blender -b render.blend -P viz.py -- 4_pentamino.stl ./4_pentamino.png
+
+
+# installation instructions 
+install render.blend and viz.py in /usr/share/stl-thumbnailer
+sudo cp stl.xml /usr/share/mime/packages/
+sudo update-mime-database /usr/share/mime
+sudo cp stl.thumbnailer /usr/share/thumbnailers/
+
